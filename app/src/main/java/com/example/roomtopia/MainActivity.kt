@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
+        replaceFragment(QuestionFragment())
     }
 
     private fun replaceFragment(fragment: Fragment){
