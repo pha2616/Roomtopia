@@ -1,5 +1,6 @@
 package com.example.roomtopia
 
+import android.content.res.Resources
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,16 +13,17 @@ class QuestionFragment: Fragment() {
     var data: MutableList<QuestionList> = mutableListOf()
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         var view = LayoutInflater.from(activity).inflate(R.layout.fragment_question,container,false)
-        insert()
+        var questionArray = resources.getStringArray(R.array.question_array)
+        insert(questionArray)
         var adapter = QuestionAdapter(view!!.context, data)
         listView = view!!.findViewById(R.id.listview_question)
         listView.adapter = adapter
         return view
     }
 
-    fun insert(){
+    fun insert(questionArray: Array<String>){
         for(i in 0 until 10){
-            var text = "hi"+ i.toString()
+            var text = questionArray[i]
             var questionlist = QuestionList(text)
             data.add(questionlist)
         }
