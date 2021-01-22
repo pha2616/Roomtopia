@@ -14,21 +14,25 @@
             android:id="@+id/listview_question"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight = "5"
-            android:divider="#999999"
-            android:dividerHeight="1dp">
+            android:divider="@null">
         </ListView>
 
         <Button
             android:id="@+id/result_btn"
             android:layout_width="120dp"
             android:layout_height="60dp"
-            android:layout_weight = "1"
             android:gravity="center"
             android:layout_gravity="center"
             android:enabled="false"
             android:background="@drawable/result_before_btn"
             />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:indeterminate="false"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            style="@android:style/Widget.ProgressBar.Horizontal"/>
 
     </LinearLayout>
 

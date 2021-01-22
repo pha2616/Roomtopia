@@ -10,73 +10,8 @@
         android:id="@+id/explain_image"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
         />
-
-    <TextView
-        android:id="@+id/question_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="50dp"
-        android:text="질문리스트"
-        android:gravity="center_horizontal"
-        />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_horizontal"
-        >
-
-        <Button
-            android:id="@+id/btn1"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="@drawable/btn1"
-            />
-        <Button
-            android:id="@+id/btn2"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="@drawable/btn2"
-            />
-        <Button
-            android:id="@+id/btn3"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="@drawable/btn3"
-            />
-        <Button
-            android:id="@+id/btn4"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="@drawable/btn4"
-            />
-        <Button
-            android:id="@+id/btn5"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="@drawable/btn5"
-            />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingBottom="30dp"
-        >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="동의"
-            android:textSize="20dp"
-            android:paddingLeft="60dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="비동의"
-            android:textSize="20dp"
-            android:paddingLeft="150dp"/>
-    </LinearLayout>
 
     <LinearLayout
         android:background="@color/colorDivision"
@@ -84,5 +19,110 @@
         android:layout_height="1dp"
         android:layout_below="@+id/logo_id"
         android:orientation="horizontal"></LinearLayout>
+
+    <TextView
+        android:id="@+id/question_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="30dp"
+        android:text="질문리스트"
+        android:textColor="#000000"
+        android:gravity="center_horizontal"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="10dp"
+        >
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            />
+
+        <Button
+            android:id="@+id/btn1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/btn1"
+            />
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            />
+
+        <Button
+            android:id="@+id/btn2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/btn2"
+            />
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            />
+
+        <Button
+            android:id="@+id/btn3"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/btn3"
+            />
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            />
+
+        <Button
+            android:id="@+id/btn4"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/btn4"
+            />
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            />
+
+        <Button
+            android:id="@+id/btn5"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/btn5"
+            />
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="20dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="동의"
+            android:textSize="20dp"
+            android:textColor="#45A5D8"
+            android:paddingLeft="26dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="비동의"
+            android:textSize="20dp"
+            android:textColor="#1C2F3A"
+            android:paddingLeft="222dp"/>
+    </LinearLayout>
 
 </LinearLayout>

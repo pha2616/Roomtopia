@@ -35,8 +35,6 @@ class ResultFragment: Fragment() {
         detail = view!!.findViewById<ImageView>(R.id.result_explain)
         character = view!!.findViewById<ImageView>(R.id.result_character)
 
-//        showResult(3)
-
         var task: ResultFragment.GetData = GetData()
         task.execute("http://" + IP_ADDRESS, "")
 

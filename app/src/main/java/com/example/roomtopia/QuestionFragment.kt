@@ -60,7 +60,7 @@ class QuestionFragment: Fragment(), OnItemClick {
         var totalDividersHeight = listview.dividerHeight*(listAdapter.count - 1)
         var totalPadding = listview.paddingTop + listview.paddingBottom
         var params: ViewGroup.LayoutParams = listview.layoutParams
-        params.height = totalHeight + totalDividersHeight + totalPadding
+        params.height = totalHeight + totalDividersHeight + totalPadding - 250
         listview.layoutParams = params
         listview.requestLayout()
     }
