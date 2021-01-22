@@ -9,15 +9,20 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 
-class QuestionAdapter(context: Context, list: List<QuestionList>): BaseAdapter() {
+class QuestionAdapter(context: Context, list: List<QuestionList>, res_btn: Button, listener: OnItemClick): BaseAdapter() {
     private lateinit var context: Context
     private lateinit var list: List<QuestionList>
     private lateinit var inflate: LayoutInflater
+    private lateinit var result_btn: Button
+    private lateinit var mCallback: OnItemClick
+    private var scores = IntArray(10)
 
     init{
         this.list = list
         this.context = context
         this.inflate = LayoutInflater.from(context)
+        this.result_btn = res_btn
+        this.mCallback = listener
     }
 
     override fun getView(p0: Int, p1: View?, p2: ViewGroup?): View? {
@@ -51,47 +56,77 @@ class QuestionAdapter(context: Context, list: List<QuestionList>): BaseAdapter()
         btn1.setOnClickListener {
             list[p0].checked = true
             list[p0].checked_btn = 1
+            scores[p0] = 5
             btn1.setBackgroundResource(R.drawable.checked1)
             btn2.setBackgroundResource(R.drawable.btn2)
             btn3.setBackgroundResource(R.drawable.btn3)
             btn4.setBackgroundResource(R.drawable.btn4)
             btn5.setBackgroundResource(R.drawable.btn5)
+            if(isFinished()){
+                result_btn.setBackgroundResource(R.drawable.result_after_btn)
+                result_btn.isEnabled = true
+                mCallback.onClick(scores)
+            }
         }
         btn2.setOnClickListener {
             list[p0].checked = true
             list[p0].checked_btn = 2
+            scores[p0] = 4
             btn2.setBackgroundResource(R.drawable.checked2)
             btn1.setBackgroundResource(R.drawable.btn1)
             btn3.setBackgroundResource(R.drawable.btn3)
             btn4.setBackgroundResource(R.drawable.btn4)
             btn5.setBackgroundResource(R.drawable.btn5)
+            if(isFinished()){
+                result_btn.setBackgroundResource(R.drawable.result_after_btn)
+                result_btn.isEnabled = true
+                mCallback.onClick(scores)
+            }
         }
         btn3.setOnClickListener {
             list[p0].checked = true
             list[p0].checked_btn = 3
+            scores[p0] = 3
             btn3.setBackgroundResource(R.drawable.checked3)
             btn2.setBackgroundResource(R.drawable.btn2)
             btn1.setBackgroundResource(R.drawable.btn1)
             btn4.setBackgroundResource(R.drawable.btn4)
             btn5.setBackgroundResource(R.drawable.btn5)
+            if(isFinished()){
+                result_btn.setBackgroundResource(R.drawable.result_after_btn)
+                result_btn.isEnabled = true
+                mCallback.onClick(scores)
+            }
         }
         btn4.setOnClickListener {
             list[p0].checked = true
             list[p0].checked_btn = 4
+            scores[p0] = 2
             btn4.setBackgroundResource(R.drawable.checked4)
             btn2.setBackgroundResource(R.drawable.btn2)
             btn3.setBackgroundResource(R.drawable.btn3)
             btn1.setBackgroundResource(R.drawable.btn1)
             btn5.setBackgroundResource(R.drawable.btn5)
+            if(isFinished()){
+                result_btn.setBackgroundResource(R.drawable.result_after_btn)
+                result_btn.isEnabled = true
+                mCallback.onClick(scores)
+            }
         }
         btn5.setOnClickListener {
             list[p0].checked = true
             list[p0].checked_btn = 5
+            scores[p0] = 1
             btn5.setBackgroundResource(R.drawable.checked5)
             btn2.setBackgroundResource(R.drawable.btn2)
             btn3.setBackgroundResource(R.drawable.btn3)
             btn4.setBackgroundResource(R.drawable.btn4)
             btn1.setBackgroundResource(R.drawable.btn1)
+            if(isFinished()){
+                result_btn.setBackgroundResource(R.drawable.result_after_btn)
+                result_btn.isEnabled = true
+                mCallback.onClick(scores)
+            }
         }
 
         if(p0 == 0){
@@ -111,5 +146,14 @@ class QuestionAdapter(context: Context, list: List<QuestionList>): BaseAdapter()
 
     override fun getCount(): Int {
         return list.size
+    }
+
+    fun isFinished(): Boolean{
+        for(i in 0 until list.size){
+            if(!list[i].checked){
+                return false
+            }
+        }
+        return true
     }
 }
