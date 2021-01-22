@@ -5,9 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
-import android.widget.Button
-import android.widget.ListView
+import android.widget.*
 import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
@@ -15,6 +13,8 @@ import androidx.fragment.app.FragmentTransaction
 class QuestionFragment: Fragment(), OnItemClick {
     private lateinit var listView: ListView
     private lateinit var result_btn: Button
+    private lateinit var progress_text: TextView
+    private lateinit var progressBar: ProgressBar
     var data: MutableList<QuestionList> = mutableListOf()
     var bundle: Bundle = Bundle()
     private var scores = IntArray(10)
@@ -23,8 +23,10 @@ class QuestionFragment: Fragment(), OnItemClick {
         var view = LayoutInflater.from(activity).inflate(R.layout.fragment_question,container,false)
         var questionArray = resources.getStringArray(R.array.question_array)
         result_btn = view!!.findViewById(R.id.result_btn)
+        progress_text = view!!.findViewById(R.id.progress_percent)
+        progressBar = view!!.findViewById(R.id.progressBar)
         insert(questionArray)
-        var adapter = QuestionAdapter(view!!.context, data, result_btn, this)
+        var adapter = QuestionAdapter(view!!.context, data, result_btn, this, progress_text, progressBar)
         listView = view!!.findViewById(R.id.listview_question)
         listView.adapter = adapter
         setListViewHeightBasedOnChildren(listView)

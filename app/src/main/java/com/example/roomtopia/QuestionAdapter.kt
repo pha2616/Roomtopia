@@ -4,17 +4,16 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.BaseAdapter
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 
-class QuestionAdapter(context: Context, list: List<QuestionList>, res_btn: Button, listener: OnItemClick): BaseAdapter() {
+class QuestionAdapter(context: Context, list: List<QuestionList>, res_btn: Button, listener: OnItemClick, progress_text: TextView, progressBar: ProgressBar): BaseAdapter() {
     private lateinit var context: Context
     private lateinit var list: List<QuestionList>
     private lateinit var inflate: LayoutInflater
     private lateinit var result_btn: Button
     private lateinit var mCallback: OnItemClick
+    private lateinit var progress_text: TextView
+    private lateinit var progressBar: ProgressBar
     private var scores = IntArray(10)
 
     init{
@@ -23,6 +22,8 @@ class QuestionAdapter(context: Context, list: List<QuestionList>, res_btn: Butto
         this.inflate = LayoutInflater.from(context)
         this.result_btn = res_btn
         this.mCallback = listener
+        this.progress_text = progress_text
+        this.progressBar = progressBar
     }
 
     override fun getView(p0: Int, p1: View?, p2: ViewGroup?): View? {
@@ -62,11 +63,7 @@ class QuestionAdapter(context: Context, list: List<QuestionList>, res_btn: Butto
             btn3.setBackgroundResource(R.drawable.btn3)
             btn4.setBackgroundResource(R.drawable.btn4)
             btn5.setBackgroundResource(R.drawable.btn5)
-            if(isFinished()){
-                result_btn.setBackgroundResource(R.drawable.result_after_btn)
-                result_btn.isEnabled = true
-                mCallback.onClick(scores)
-            }
+            checkProgress()
         }
         btn2.setOnClickListener {
             list[p0].checked = true
@@ -77,11 +74,7 @@ class QuestionAdapter(context: Context, list: List<QuestionList>, res_btn: Butto
             btn3.setBackgroundResource(R.drawable.btn3)
             btn4.setBackgroundResource(R.drawable.btn4)
             btn5.setBackgroundResource(R.drawable.btn5)
-            if(isFinished()){
-                result_btn.setBackgroundResource(R.drawable.result_after_btn)
-                result_btn.isEnabled = true
-                mCallback.onClick(scores)
-            }
+            checkProgress()
         }
         btn3.setOnClickListener {
             list[p0].checked = true
@@ -92,11 +85,7 @@ class QuestionAdapter(context: Context, list: List<QuestionList>, res_btn: Butto
             btn1.setBackgroundResource(R.drawable.btn1)
             btn4.setBackgroundResource(R.drawable.btn4)
             btn5.setBackgroundResource(R.drawable.btn5)
-            if(isFinished()){
-                result_btn.setBackgroundResource(R.drawable.result_after_btn)
-                result_btn.isEnabled = true
-                mCallback.onClick(scores)
-            }
+            checkProgress()
         }
         btn4.setOnClickListener {
             list[p0].checked = true
@@ -107,11 +96,7 @@ class QuestionAdapter(context: Context, list: List<QuestionList>, res_btn: Butto
             btn3.setBackgroundResource(R.drawable.btn3)
             btn1.setBackgroundResource(R.drawable.btn1)
             btn5.setBackgroundResource(R.drawable.btn5)
-            if(isFinished()){
-                result_btn.setBackgroundResource(R.drawable.result_after_btn)
-                result_btn.isEnabled = true
-                mCallback.onClick(scores)
-            }
+            checkProgress()
         }
         btn5.setOnClickListener {
             list[p0].checked = true
@@ -122,11 +107,7 @@ class QuestionAdapter(context: Context, list: List<QuestionList>, res_btn: Butto
             btn3.setBackgroundResource(R.drawable.btn3)
             btn4.setBackgroundResource(R.drawable.btn4)
             btn1.setBackgroundResource(R.drawable.btn1)
-            if(isFinished()){
-                result_btn.setBackgroundResource(R.drawable.result_after_btn)
-                result_btn.isEnabled = true
-                mCallback.onClick(scores)
-            }
+            checkProgress()
         }
 
         if(p0 == 0){
@@ -155,5 +136,22 @@ class QuestionAdapter(context: Context, list: List<QuestionList>, res_btn: Butto
             }
         }
         return true
+    }
+
+    fun checkProgress(){
+        var count = 0
+        for(i in 0 until list.size){
+            if(list[i].checked){
+                count++
+            }
+        }
+        progress_text.text = (count * 10).toString() + "%"
+        progressBar.progress = count * 10
+
+        if(progressBar.progress == 100){
+            result_btn.setBackgroundResource(R.drawable.result_after_btn)
+            result_btn.isEnabled = true
+            mCallback.onClick(scores)
+        }
     }
 }
