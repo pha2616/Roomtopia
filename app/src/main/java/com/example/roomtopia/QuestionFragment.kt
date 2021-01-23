@@ -31,7 +31,7 @@ class QuestionFragment: Fragment(), OnItemClick {
 
         result_btn.setOnClickListener {
             bundle.putIntArray("scores", scores)
-
+            replaceFragment(ResultFragment())
         }
 
         return view
