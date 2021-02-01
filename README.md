@@ -23,3 +23,9 @@ This is an android application that recommends OTT, reading app, and recording a
 - targetSdkVersion : 30
 
 ## screenshot
+<img src="https://user-images.githubusercontent.com/52243871/106468919-e528af00-64e1-11eb-9f28-7afebc35844d.PNG" width="180px" height="320px"></img>
+<img src="https://user-images.githubusercontent.com/52243871/106468922-e6f27280-64e1-11eb-8141-d092a9f35cf7.PNG" width="180px" height="320px"></img>
+<img src="https://user-images.githubusercontent.com/52243871/106468935-eb1e9000-64e1-11eb-8f97-c323dd078a3b.PNG" width="180px" height="320px"></img> <br />
+<img src="https://user-images.githubusercontent.com/52243871/106468941-ec4fbd00-64e1-11eb-873f-40f7232daa3b.PNG" width="180px" height="320px"></img>
+<img src="https://user-images.githubusercontent.com/52243871/106468944-ec4fbd00-64e1-11eb-846f-d575b252038a.PNG" width="180px" height="320px"></img>
+<img src="https://user-images.githubusercontent.com/52243871/106468945-ece85380-64e1-11eb-95f1-3a4836fcf355.PNG" width="180px" height="320px"></img>
