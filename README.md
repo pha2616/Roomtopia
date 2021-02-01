@@ -10,7 +10,7 @@
 
 ## Introduction
 This is an android application that recommends OTT, reading app, and recording app for people who have more time at home due to COVID-19.
-1. It provides a survey to identify the user's propensity.
+1. It provides a survey to identify the user's personality.
 2. Based on the survey results, it recommends the appropriate application combination for users.
 3. You can read the features of the recommended applications.
 
